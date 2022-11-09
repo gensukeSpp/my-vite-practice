@@ -3,3 +3,16 @@ node_modules
 dist
 dist-ssr
 *.local
+
+.husky
+.storybook
+.vscode
+.editorconfig
+.eslintignore
+.eslintrc
+.pritterignore
+.pritterrc
+postcss.config.js
+tailwind.config.js
+tsconfig.json
+vite.config.js
