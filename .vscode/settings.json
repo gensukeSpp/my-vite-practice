@@ -1,8 +1,0 @@
-{
-  "css.lint.unknownAtRules": "ignore",
-  "files.exclude": {
-    "node_modules": true,
-    "dist": true,
-    "yarn.lock": true
-  }
-}

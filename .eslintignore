@@ -1,6 +1,0 @@
-node_modules
-dist
-dist-ssr
-
-postcss.config.js
-tailwind.config.js
