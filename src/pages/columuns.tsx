@@ -19,5 +19,5 @@ export const MyPage = () => (
   )
   
   interface Props {
-    children: [React.ReactElement, React.ReactElement];
+    children: React.ReactElement[];
   }

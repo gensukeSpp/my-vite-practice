@@ -1,11 +1,12 @@
-export const Header: React.FC<{}> = () => {
-    <header>
-        <div id="head-item">
-            <div className="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </header>
+
+type MenuPropsgit = {
+    children: React.ReactNode,
+}
+
+export const MenuInHeader = () => {
+    <div className="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 }
