@@ -4,7 +4,7 @@ const InnerListMenu = () => {
     return (
         <ul>
             {menu_five.map((value, i) => {
-                return `<li><a href="./${value}"><img src="./img/navi_0${i+1}.jpg" /></a></li>`
+                `<li><a href="./${value}"><img src="./img/navi_0${i+1}.jpg" /></a></li>`
             })}
         </ul>
     )
