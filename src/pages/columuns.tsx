@@ -1,9 +1,11 @@
 import { HogePage } from '~/pages/hoge'
 import { RootPage } from '~/pages/root'
 
+import { MenuHeader } from './head/header'
+
 export const MyPage = () => (
     <>
-      {/* <Header /> */}
+      <MenuHeader />
       <TwoColumnLayout>
         <HogePage />
         <RootPage />
