@@ -1,13 +1,15 @@
-import { HogePage } from '~/pages/hoge'
+// import { HogePage } from '~/pages/hoge'
 import { RootPage } from '~/pages/root'
 
 import { MenuHeader } from './head/header'
+import { TopicsArea } from './topics/main';
 
 export const MyPage = () => (
     <>
       <MenuHeader />
       <TwoColumnLayout>
-        <HogePage />
+        {/* <HogePage /> */}
+        <TopicsArea />
         <RootPage />
       </TwoColumnLayout>
     </>
@@ -15,8 +17,8 @@ export const MyPage = () => (
   
   const TwoColumnLayout:React.FC<Props> = ({ children }) => (
     <div style={{display: 'flex'}}>
-      <div style={{flex: '1 1 30%'}}>{children[0]}</div>
-      <div style={{flex: '1 1 70%'}}>{children[1]}</div>
+      <div style={{flex: '1 1 70%'}}>{children[0]}</div>
+      <div style={{flex: '1 1 30%'}}>{children[1]}</div>
     </div>
   )
   
