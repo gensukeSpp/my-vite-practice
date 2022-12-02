@@ -1,19 +1,17 @@
 import { useState } from "react"
 
-const TopicsFetch = () => {
-    // const [content, getContent] = useState("");
+// const TopicsFetch = () => {
 
-    const getTopics:Promise<Response> = fetch("https://jsonplaceholder.typicode.com/posts")
-        .then(res => res.json())
-        // .then(json => console.log(json))
-        // .catch(e => console.error(e.message));
-    return ( async () => {
-        const posts = await getTopics;
-        return <div>{posts}</div>
-    })
-}
+const getTopics: Promise<void> = fetch("https://jsonplaceholder.typicode.com/todos/", {
+    method: 'GET'})
+    .then(res => res.json())
+    .then(json => console.log(json))
+    .catch(e => console.error(e.message));
+// }
 
 export const TopicsArea = () => {
+    let topics = getTopics;
+    console.log(topics);
     return (
         <main>
             <aside id="product-left">
@@ -22,7 +20,6 @@ export const TopicsArea = () => {
                 <div className="intro-contents">
                     <div id="topics">
                         <div className="list-title"><img src="./img/title_01.jpg" alt="新着情報" /></div>
-                        <TopicsFetch />
                         {/* <ul>
 
                         </ul> */}
