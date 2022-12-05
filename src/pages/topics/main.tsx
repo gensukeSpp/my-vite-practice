@@ -1,17 +1,30 @@
 import { useState } from "react"
 
-// const TopicsFetch = () => {
+const TopicsFetch = () => {
+    type topics = {
+        content: string,
+        link: string
+    }
 
-const getTopics: Promise<void> = fetch("https://jsonplaceholder.typicode.com/todos/", {
-    method: 'GET'})
-    .then(res => res.json())
-    .then(json => console.log(json))
-    .catch(e => console.error(e.message));
-// }
+    const topics: Promise<Response> = fetch("https://jsonplaceholder.typicode.com/gensukeSpp/sweets_fake/topics", {
+        method: 'GET'})
+        .then(res => res.json())
+        // .then(json => console.log(json))
+        // .catch(e => console.error(e.message));
+    return (
+        {topics.map((topic, i) => {
+            return (
+                <>
+                    <li>2022.12.5</li>
+                    <li><a href={`./${topic.link}`}>{topic.content}</a></li>
+                </>
+            )
+        })}
+    )
+}
 
 export const TopicsArea = () => {
-    let topics = getTopics;
-    console.log(topics);
+    // console.log(topics);
     return (
         <main>
             <aside id="product-left">
