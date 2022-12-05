@@ -6,7 +6,7 @@ const TopicsFetch = () => {
         link: string
     }
 
-    const topics: Promise<Response> = fetch("https://jsonplaceholder.typicode.com/gensukeSpp/sweets_fake/topics", {
+    const topics: Promise<Response> = fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
         method: 'GET'})
         .then(res => res.json())
         // .then(json => console.log(json))
