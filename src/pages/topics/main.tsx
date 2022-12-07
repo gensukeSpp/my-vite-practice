@@ -1,16 +1,33 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+type TopicProp = {
+    content: string,
+    link: string
+}
+
+const fetchData = async () => {
+    const res = await fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
+        method: 'GET'});
+    const topicJson: Promise<TopicProp[]> = await res.json();
+    return topicJson;
+}
 
 const TopicsFetch = () => {
-    type topics = {
-        content: string,
-        link: string
-    }
 
-    const topics: Promise<Response> = fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
-        method: 'GET'})
-        .then(res => res.json())
-        // .then(json => console.log(json))
-        // .catch(e => console.error(e.message));
+    const [content, setContent] = useState("");
+    const [link, setLink] = useState("");
+    const [topics, setTopics] = useState({});
+
+    useEffect(() => {
+        fetchData().then(json => setTopics(json));
+    }, []);
+
+    // const TypicodeTodo: Promise<TopicProp[]> = fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
+    //     method: 'GET'})
+    //     .then(res => res.json());
+    //     .then(json => console.log(json))
+    //     .catch(e => console.error(e.message));
+
     return (
         {topics.map((topic, i) => {
             return (
