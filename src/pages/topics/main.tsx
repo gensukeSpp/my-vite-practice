@@ -1,25 +1,41 @@
-import { useEffect, useState } from "react"
+import { Dispatch, SetStateAction, useEffect, useState } from "react"
 
 type TopicProp = {
     content: string,
     link: string
 }
-
-const fetchData = async () => {
-    const res = await fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
-        method: 'GET'});
-    const topicJson: Promise<TopicProp[]> = await res.json();
-    return topicJson;
+type Props = {
+    Topics: Dispatch<SetStateAction<TopicProp>>
 }
+
+const url = "https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics";
+const fetchData = async (): Promise<Props> => {
+    const data = await fetch(url, {method: 'GET'});
+    const json = data.json();
+    return json;
+}
+// const fetchData/*: Promise<Props>*/ = fetch(url, {
+//         method: 'GET'})
+//     .then(res => res.json());
 
 const TopicsFetch = () => {
 
     const [content, setContent] = useState("");
     const [link, setLink] = useState("");
-    const [topics, setTopics] = useState({});
+    const [isLosding, setIsLoading] = useState(false);
+    const [topics, setTopics] = useState([]);
 
+    // let json;
     useEffect(() => {
-        fetchData().then(json => setTopics(json));
+    //     const f = async () => {
+    //         setIsLoading(true);
+    //         const json = await fetchData;
+    //         setTopics(json);
+    //         setIsLoading(false);
+    //     }
+    //    f();
+        fetchData()
+            .then((json) => setTopics(json))
     }, []);
 
     // const TypicodeTodo: Promise<TopicProp[]> = fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
@@ -29,14 +45,18 @@ const TopicsFetch = () => {
     //     .catch(e => console.error(e.message));
 
     return (
-        {topics.map((topic, i) => {
-            return (
-                <>
-                    <li>2022.12.5</li>
-                    <li><a href={`./${topic.link}`}>{topic.content}</a></li>
-                </>
-            )
-        })}
+        <div>
+            {
+                (topics.map((topic, i) => {
+                    return (
+                        <>
+                            <li>2022.12.5</li>
+                            <li><a href={`./${topic}`}>{topic}</a></li>
+                        </>
+                    )
+                }))
+            }
+        </div>
     )
 }
 
