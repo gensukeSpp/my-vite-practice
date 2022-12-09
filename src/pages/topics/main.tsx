@@ -39,6 +39,7 @@ const TopicsFetch = () => {
         // fetchData()
         //     .then((json) => setTopics(json))
     }, []);
+    console.log(topics);
 
     // const TypicodeTodo: Promise<TopicProp[]> = fetch("https://my-json-server.typicode.com/gensukeSpp/sweets_fake/topics", {
     //     method: 'GET'})
@@ -47,18 +48,18 @@ const TopicsFetch = () => {
     //     .catch(e => console.error(e.message));
 
     return (
-        <div>
+        <ul>
             {
                 (topics.map((topic, i) => {
                     return (
                         <>
                             <li>2022.12.5</li>
-                            <li><a href={`./${topic}`}>{topic}</a></li>
+                            <li><a href={`./${topic.link}`}>{topic.content}</a></li>
                         </>
                     )
                 }))
             }
-        </div>
+        </ul>
     )
 }
 
@@ -72,9 +73,7 @@ export const TopicsArea = () => {
                 <div className="intro-contents">
                     <div id="topics">
                         <div className="list-title"><img src="./img/title_01.jpg" alt="新着情報" /></div>
-                        {/* <ul>
-
-                        </ul> */}
+                        <TopicsFetch />
                     </div>
                 </div>
             </aside>
